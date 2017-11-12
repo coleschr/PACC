@@ -11,7 +11,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.example.cole.pacc.Math.TrigFunctions;
 import com.example.cole.pacc.R;
 
 import java.util.ArrayList;
