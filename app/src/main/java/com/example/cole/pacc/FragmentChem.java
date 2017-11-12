@@ -17,7 +17,7 @@ public class FragmentChem extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        View rootView = inflater.inflate(R.layout.phys_fragment, container, false);
+        View rootView = inflater.inflate(R.layout.chem_fragment, container, false);
 
         //wire any widgets -- must use rootView.findViewById
 
@@ -26,4 +26,6 @@ public class FragmentChem extends Fragment {
         //return the view that we inflated
         return rootView;
     }
+
+
 }
