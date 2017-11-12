@@ -17,7 +17,7 @@ import java.util.ArrayList;
  * Created by phoebekim on 11/11/17.
  */
 
-public class TrigFunctions extends Fragment {
+public class SubFragmentTrigFunctions extends Fragment {
 
     private EditText anglea, sidea, angleb, sideb, anglec, sidec;
     private double banglea, vsidea, vangleb, vsideb, vanglec, vsidec;
