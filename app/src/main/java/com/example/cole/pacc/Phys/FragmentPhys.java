@@ -3,6 +3,7 @@ package com.example.cole.pacc.Phys;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.example.cole.pacc.Math.TrigFunctions;
 import com.example.cole.pacc.R;
 
 import java.util.ArrayList;
@@ -23,6 +25,7 @@ public class FragmentPhys extends Fragment {
     private ListView topicsListView;
     private ArrayList<String> topics;
     private ArrayAdapter<String> adapter;
+    private Fragment currentFragment;
 
     @Nullable
     @Override
@@ -45,7 +48,13 @@ public class FragmentPhys extends Fragment {
         topicsListView.setOnItemClickListener(new ListView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int pos, long l) { //int i used to be pos (position in list)
-
+                switch (topics.get(pos)){
+                    case "Kinematics":
+                        currentFragment = new SubFragmentKinematics();
+                        switchToNewScreen();
+                        break;
+                }
+                //Intent
                 //Intent i = new Intent(MainActivity.this, StarDescriptionActivity.class);
 
                 //i.putExtra(STAR, stars.get(pos));
@@ -64,12 +73,22 @@ public class FragmentPhys extends Fragment {
 
     private void createTopics(){
         topics = new ArrayList<>();
-        topics.add("Kinematic");
+        topics.add("Kinematics");
         topics.add("Linear Momentum");
         topics.add("Works, Energy, and Power");
         topics.add("Electricity");
         topics.add("Torque, Rotational Motion, Angular Momentum");
         topics.add("Oscillations, Mechanical Waves, and Sound");
+    }
+
+    private void switchToNewScreen() {
+        //tell the fragment manager that if our current fragment isn't null, to replace whatever is there with it
+        FragmentManager fm = getFragmentManager();
+        if (currentFragment != null) {
+            fm.beginTransaction()
+                    .replace(R.id.fragment_container, currentFragment)
+                    .commit();
+        }
     }
 
 }
