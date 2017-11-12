@@ -3,6 +3,7 @@ package com.example.cole.pacc.Chem;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.example.cole.pacc.Chem.SubFragmentThermoElectro;
 import com.example.cole.pacc.R;
 
 import java.util.ArrayList;
@@ -19,9 +21,11 @@ import java.util.ArrayList;
  */
 
 public class FragmentChem extends Fragment {
+
     private ListView topicsListView;
     private ArrayList<String> topics;
     private ArrayAdapter<String> adapter;
+    private Fragment currentFragment;
 
     @Nullable
     @Override
@@ -44,7 +48,13 @@ public class FragmentChem extends Fragment {
         topicsListView.setOnItemClickListener(new ListView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int pos, long l) { //int i used to be pos (position in list)
-
+                switch (topics.get(pos)){
+                    case "Thermochemistry/Electrochemistry":
+                        currentFragment = new SubFragmentThermoElectro();
+                        switchToNewScreen();
+                        break;
+                }
+                //Intent
                 //Intent i = new Intent(MainActivity.this, StarDescriptionActivity.class);
 
                 //i.putExtra(STAR, stars.get(pos));
@@ -61,7 +71,7 @@ public class FragmentChem extends Fragment {
         topicsListView = (ListView) rootView.findViewById(R.id.listView_chem);
     }
 
-    private void createTopics() {
+    private void createTopics(){
         topics = new ArrayList<>();
         topics.add("Equilibrium");
         topics.add("Kinetics");
@@ -69,4 +79,16 @@ public class FragmentChem extends Fragment {
         topics.add("Thermochemistry/Electrochemistry");
     }
 
+    private void switchToNewScreen() {
+        //tell the fragment manager that if our current fragment isn't null, to replace whatever is there with it
+        FragmentManager fm = getFragmentManager();
+        if (currentFragment != null) {
+            fm.beginTransaction()
+                    .replace(R.id.fragment_container, currentFragment)
+                    .commit();
+        }
+    }
+
 }
+
+
