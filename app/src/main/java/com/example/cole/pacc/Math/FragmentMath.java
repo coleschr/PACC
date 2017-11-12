@@ -3,6 +3,7 @@ package com.example.cole.pacc.Math;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +23,7 @@ public class FragmentMath extends Fragment {
     private ListView topicsListView;
     private ArrayList<String> topics;
     private ArrayAdapter<String> adapter;
+    private Fragment currentFragment;
 
     @Nullable
     @Override
@@ -45,6 +47,12 @@ public class FragmentMath extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int pos, long l) { //int i used to be pos (position in list)
 
+                switch (topics.get(pos)){
+                    case "Trigonometry":
+                        currentFragment = new TrigFunctions();
+                        switchToNewScreen();
+                        break;
+                }
                 //Intent i = new Intent(MainActivity.this, StarDescriptionActivity.class);
 
                 //i.putExtra(STAR, stars.get(pos));
@@ -63,10 +71,19 @@ public class FragmentMath extends Fragment {
 
     private void createTopics() {
         topics = new ArrayList<>();
-        topics.add("Trig Functions");
-        topics.add("Kinetics");
-        topics.add("Gases, Liquids, and Solutions");
-        topics.add("Thermochemistry/Electrochemistry");
+        topics.add("Algebra");
+        topics.add("Geometry");
+        topics.add("Trigonometry");
 
+    }
+
+    private void switchToNewScreen() {
+        //tell the fragment manager that if our current fragment isn't null, to replace whatever is there with it
+        FragmentManager fm = getFragmentManager();
+        if (currentFragment != null) {
+            fm.beginTransaction()
+                    .replace(R.id.fragment_container, currentFragment)
+                    .commit();
+        }
     }
 }
