@@ -16,8 +16,8 @@ import com.example.cole.pacc.R;
  */
 
 public class SubFragmentKinematics extends Fragment implements View.OnClickListener {
-    private EditText initialV, accl, time, distAnswer;
-    private Button calculateDist;
+    private EditText initialV, accl, time, distAnswer, initialV2, accl2, time2, velocityAnswer;
+    private Button calculateDist, calculateVelocity;
 
     @Nullable
     @Override
@@ -26,9 +26,13 @@ public class SubFragmentKinematics extends Fragment implements View.OnClickListe
         View rootView = inflater.inflate(R.layout.phys_fragment_kinematics, container, false);
         wireWidgets(rootView);
         calculateDist.setOnClickListener(this);
+        calculateVelocity.setOnClickListener(this);
+        
         solveDistance();
+        solveVelocity();
         return rootView;
     }
+
 
 
     private void wireWidgets(View rootView) {
@@ -37,6 +41,11 @@ public class SubFragmentKinematics extends Fragment implements View.OnClickListe
         time = (EditText) rootView.findViewById(R.id.editText_time);
         distAnswer = (EditText) rootView.findViewById(R.id.editText_answer_d);
         calculateDist = (Button) rootView.findViewById(R.id.button_solve_d);
+        initialV2 = (EditText) rootView.findViewById(R.id.editText_v0);
+        accl2 = (EditText) rootView.findViewById(R.id.editText_a);
+        time2 = (EditText) rootView.findViewById(R.id.editText_t);
+        velocityAnswer = (EditText) rootView.findViewById(R.id.editText_answer_v);
+        calculateVelocity = (Button) rootView.findViewById(R.id.button_solve_v);
     }
 
     private void solveDistance() {
@@ -51,11 +60,26 @@ public class SubFragmentKinematics extends Fragment implements View.OnClickListe
         }
     }
 
+    private void solveVelocity() {
+        try {
+            double vi = Double.parseDouble(initialV2.getText().toString());
+            double a = Double.parseDouble(accl2.getText().toString());
+            double t = Double.parseDouble(time2.getText().toString());
+
+            velocityAnswer.setText("" + (vi + a * t));
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+        }
+    }
+
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.button_solve_d:
                 solveDistance();
+                break;
+            case R.id.button_solve_v:
+                solveVelocity();
                 break;
         }
     }
