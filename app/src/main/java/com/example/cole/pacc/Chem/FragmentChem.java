@@ -67,7 +67,6 @@ public class FragmentChem extends Fragment {
         topics.add("Kinetics");
         topics.add("Gases, Liquids, and Solutions");
         topics.add("Thermochemistry/Electrochemistry");
-
     }
 
 }
