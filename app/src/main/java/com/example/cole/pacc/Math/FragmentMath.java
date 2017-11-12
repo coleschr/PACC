@@ -19,7 +19,7 @@ public class FragmentMath extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        View rootView = inflater.inflate(R.layout.phys_fragment, container, false);
+        View rootView = inflater.inflate(R.layout.math_fragment, container, false);
 
         //wire any widgets -- must use rootView.findViewById
 
