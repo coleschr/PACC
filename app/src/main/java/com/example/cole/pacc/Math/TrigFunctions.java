@@ -37,16 +37,32 @@ public class TrigFunctions extends Fragment {
         sidec = (EditText) rootView.findViewById(R.id.sidec);
         solve = (Button) rootView.findViewById(R.id.solve);
 
-        ArrayList<EditText> values = new ArrayList<EditText>() {{
+        ArrayList<EditText> anglevalues = new ArrayList<EditText>() {{
             add(anglea);
-            add(sidea);
             add(angleb);
-            add(sideb);
             add(anglec);
+        }};
+        ArrayList<EditText> sidevalues = new ArrayList<EditText>() {{
+            add(sidea);
+            add(sideb);
             add(sidec);
         }};
 
+        for (int i = 0; i < 3; i++)
+        {
+            int numberofangles = 3;
+            int numberofsides = 3;
+            if (anglevalues.get(i).getText().equals(""))
+            {
+                numberofangles--;
+            }
+            if (sidevalues.get(i).getText().equals(""))
+            {
+                numberofsides--;
+            }
 
+
+        }
 
         //wire any widgets -- must use rootView.findViewById
 
