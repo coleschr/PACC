@@ -37,13 +37,13 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.99"
-        app:srcCompat="@drawable/ic_whatshot_black_24dp" />
+        app:srcCompat="@drawable/ic_math" />
 
     <ImageButton
         android:id="@+id/chem"
         android:layout_width="50dp"
         android:layout_height="24dp"
-        app:srcCompat="@drawable/ic_whatshot_black_24dp"
+        app:srcCompat="@drawable/ic_chem"
         android:tint="@color/colorNotClicked"
         android:background="@color/colorBottomBar"
         app:layout_constraintTop_toTopOf="parent"
@@ -61,7 +61,7 @@
 
     <ImageButton
         android:id="@+id/phys"
-        app:srcCompat="@drawable/ic_whatshot_black_24dp"
+        app:srcCompat="@drawable/ic_phys"
         android:tint="@color/colorNotClicked"
         android:background="@color/colorBottomBar"
         android:layout_width="50dp"
