@@ -58,7 +58,7 @@ public class FragmentMath extends Fragment {
     }
 
     private void wireWidgets(View rootView) {
-        topicsListView = (ListView) rootView.findViewById(R.id.listView_chem);
+        topicsListView = (ListView) rootView.findViewById(R.id.listView_math);
     }
 
     private void createTopics() {
