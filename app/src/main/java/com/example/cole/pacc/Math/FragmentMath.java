@@ -49,7 +49,7 @@ public class FragmentMath extends Fragment {
 
                 switch (topics.get(pos)){
                     case "Trigonometry":
-                        currentFragment = new SubFragmentTrigFunctions();
+                        currentFragment = new SubFragmentTrigonometry();
                         switchToNewScreen();
                         break;
                 }
