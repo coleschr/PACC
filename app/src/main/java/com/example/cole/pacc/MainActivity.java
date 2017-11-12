@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageButton;
 
+import com.example.cole.pacc.Chem.FragmentChem;
 import com.example.cole.pacc.Math.FragmentMath;
 import com.example.cole.pacc.Phys.FragmentPhys;
 

@@ -1,4 +1,4 @@
-package com.example.cole.pacc;
+package com.example.cole.pacc.Chem;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
+import com.example.cole.pacc.R;
 
 import java.util.ArrayList;
 
