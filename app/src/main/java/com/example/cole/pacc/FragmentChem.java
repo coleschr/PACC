@@ -6,12 +6,20 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import java.util.ArrayList;
 
 /**
  * Created by Cole on 11/11/17.
  */
 
 public class FragmentChem extends Fragment {
+    private ListView topicsListView;
+    private ArrayList<String> topics;
+    private ArrayAdapter<String> adapter;
 
     @Nullable
     @Override
@@ -20,12 +28,44 @@ public class FragmentChem extends Fragment {
         View rootView = inflater.inflate(R.layout.chem_fragment, container, false);
 
         //wire any widgets -- must use rootView.findViewById
+        wireWidgets(rootView);
 
         //get any other initial set up done
+        createTopics();
+
+        adapter =
+                new ArrayAdapter<String>(getActivity(), //context
+                        R.layout.list_item_topic,   //textView layout for the l
+                        topics); //the list to d
+        //set the adapter to the listView
+        topicsListView.setAdapter(adapter);
+        topicsListView.setOnItemClickListener(new ListView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int pos, long l) { //int i used to be pos (position in list)
+
+                //Intent i = new Intent(MainActivity.this, StarDescriptionActivity.class);
+
+                //i.putExtra(STAR, stars.get(pos));
+
+                //startActivity(i);
+            }
+        });
 
         //return the view that we inflated
         return rootView;
     }
 
+    private void wireWidgets(View rootView) {
+        topicsListView = (ListView) rootView.findViewById(R.id.listView_chem);
+    }
+
+    private void createTopics() {
+        topics = new ArrayList<>();
+        topics.add("Equilibrium");
+        topics.add("Kinetics");
+        topics.add("Gases, Liquids, and Solutions");
+        topics.add("Thermochemistry/Electrochemistry");
+
+    }
 
 }
