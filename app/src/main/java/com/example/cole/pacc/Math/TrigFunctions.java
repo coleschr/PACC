@@ -46,14 +46,7 @@ public class TrigFunctions extends Fragment {
             add(sidec);
         }};
 
-        for (int i = 0; i < 6; i++)
-        {
-            int enoughinfo = 0;
-            if (values.get(i).getText().equals(""))
-            {
-               enoughinfo = enoughinfo;
-            }
-        }
+
 
         //wire any widgets -- must use rootView.findViewById
 
