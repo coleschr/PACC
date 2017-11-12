@@ -1,4 +1,4 @@
-package com.example.cole.pacc;
+package com.example.cole.pacc.Math;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -6,6 +6,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.cole.pacc.R;
 
 /**
  * Created by Cole on 11/11/17.
